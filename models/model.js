@@ -2,7 +2,11 @@ const mongoose = require('mongoose');
 
 const dataSchema = new mongoose.Schema({
     title: {
-        // required: true,
+        required: true,
+        type: String
+    },
+    brand: {
+        required: true,
         type: String
     },
     price: {
@@ -10,11 +14,11 @@ const dataSchema = new mongoose.Schema({
         type: Number
     },
     description: {
-        // required: true,
+        required: true,
         type: String
     },
     image: {
-        // required: true,
+        required: true,
         type: String
     },
 })
