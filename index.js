@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 const mongoString = process.env.DATABASE_URL;
 
 const routes = require('./routes/routes');
+const paymentroutes = require("./routes/payment");
 // var bodyParser = require('body-parser')
 
 mongoose.connect(mongoString);
@@ -20,9 +21,12 @@ database.once('connected', () => {
 })
 const app = express();
 app.use(cors());
-app.use(express.json());
+// app.use(express.json());
+app.use(express.json({ extended: false }));
+
 
 app.use('/api', routes)
+app.use("/payment", paymentroutes);
 app.get("/",(req,res) => { 
     res.send("Welcome To Shishir Bhargav's Ecommerce Rest Api")
  })
